@@ -21,15 +21,15 @@ Além disso, é informado os dados que serão requisitados:
 
 Dada essas condições, desenvolveu-se a API **countries-infos-api** com as seguintes tecnologias:
 
- - [ ] **NodeJS;**
-- [ ] **Typescript;**
-- [ ] **NestJS;**
-- [ ] **Docker e docker-compose;**
-- [ ] **Jest para testes;**
-- [ ] **TypeORM como ORM;**
-- [ ] **PostgreSQL  como database**;
-- [ ] **Github CI para Push e PR na master;**
-- [ ] **Demais tecnologias como husky no pre-commit .**
+ - [x] **NodeJS;**
+- [x] **Typescript;**
+- [x] **NestJS;**
+- [x] **Docker e docker-compose;**
+- [x] **Jest para testes;**
+- [x] **TypeORM como ORM;**
+- [x] **PostgreSQL  como database**;
+- [x] **Github CI para Push e PR na master;**
+- [x] **Demais tecnologias como husky no pre-commit .**
 
 Além disso, no projeto, no momento que sobe o projeto, é possível ter acesso ao **pgadmin4** e ao **redis-commander** pra melhor gerenciamento do database criado e do cache, caso seja usado em alguma rota quando necessário.
 
