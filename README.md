@@ -31,7 +31,7 @@ Dada essas condições, desenvolveu-se a API **countries-infos-api** com as segu
 - [x] **Github CI para Push e PR na master;**
 - [x] **Demais tecnologias como husky no pre-commit .**
 
-Além disso, no projeto, no momento que sobe o projeto, é possível ter acesso ao **pgadmin4** e ao **redis-commander** pra melhor gerenciamento do database criado e do cache, caso seja usado em alguma rota quando necessário.
+Além disso, no momento que sobe o projeto, é possível ter acesso ao **pgadmin4** e ao **redis-commander** pra melhor gerenciamento do database criado e do cache, caso seja usado em alguma rota quando necessário.
 
 ## Executando o projeto
 Para testar local, faz-se necessário subir um docker compose ou ainda, configurar um banco postgres em sua máquina. A fim de facilitar, usar o docker compose torna mais simples o processo. 
