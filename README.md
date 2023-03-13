@@ -1,25 +1,16 @@
-# Desafio de Backend
+# countries infos api
 
 <img src="./img/logo-clubpetro.png" style="margin-left: 100px"
      alt="Clubpetro" width="300">
+     
+O projeto consistiu em criar uma api rest para alimentar um frontend que buscava locais para se conhecer ao redor do mundo. Dada essa condição, tem-se algumas restrições para realização do CRUD. As principais considerações do projeto foram:
 
-- [Descrição](#descrição)
-  - [O Desafio](#o-desafio)
-  - [Requisitos Obrigatórios](#requisitos-obrigatórios)
-  - [Bônus](#bônus)
-- [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
+- A API deverá ser desenvolvida com Node.js e Express;
+- Apenas o Local e a Meta poderão ser editados;
+- O mesmo local em determinado país não poderá ser adicionado de forma duplicada;
+- A listagem dos dados deverá ser ordenada de forma crescente pela meta;
 
-## Descrição
-
-Este desafio tem como objetivo avaliar as habilidades técnicas do candidato a vaga de desenvolvedor backend no Clubpetro.
-
-#### O Desafio
-
-O desafio consiste em desenvolver uma API rest que permita o CRUD de lugares para se conhecer ao redor do mundo para alimentar o frontend que pode ser visto na imagem a seguir:
-
-<img src="./img/challenge.png" alt="Desafio" >
-
-Os dados a ser considerados são:
+Além disso, é informado os dados que serão requisitados:
 
 - País: O país escolhido;
 - Local: O local dentro do país escolhido;
@@ -28,31 +19,105 @@ Os dados a ser considerados são:
 - Data de criação do registro;
 - Data de atualização do registro.
 
-#### Requisitos Obrigatórios
+Dada essas condições, desenvolveu-se a API **countries-infos-api** com as seguintes tecnologias:
 
-> Requisitos que serão avaliados no desafio.
+ - [ ] **NodeJS;**
+- [ ] **Typescript;**
+- [ ] **NestJS;**
+- [ ] **Docker e docker-compose;**
+- [ ] **Jest para testes;**
+- [ ] **TypeORM como ORM;**
+- [ ] **PostgreSQL  como database**;
+- [ ] **Github CI para Push e PR na master;**
+- [ ] **Demais tecnologias como husky no pre-commit .**
 
-- A API deverá ser desenvolvida com Node.js e Express;
-- Apenas o Local e a Meta poderão ser editados;
-- O mesmo local em determinado país não poderá ser adicionado de forma duplicada;
-- A listagem dos dados deverá ser ordenada de forma crescente pela meta;
-- O candidato deverá adicionar ao projeto uma explicação de como executar a aplicação.
+Além disso, no projeto, no momento que sobe o projeto, é possível ter acesso ao **pgadmin4** e ao **redis-commander** pra melhor gerenciamento do database criado e do cache, caso seja usado em alguma rota quando necessário.
 
-#### Bônus
+## Executando o projeto
+Para testar local, faz-se necessário subir um docker compose ou ainda, configurar um banco postgres em sua máquina. A fim de facilitar, usar o docker compose torna mais simples o processo. 
 
-> Requisitos que não são obrigatórios mas podem te deixar em vantagem com relação aos outros candidatos.
+Anteriormente a isso, verifique se tem um arquivo **.env** na raiz do projeto. As variáveis necessárias estão presentes no arquivo **.env.example** no repositório.
 
-- Utilização do framework [NestJS](https://nestjs.com/);
-- Typescript;
-- Testes automatizados;
-- [TypeORM](https://typeorm.io/#/);
-- [Docker](https://www.docker.com/);
-- Deploy para [Google Cloud Platform](https://cloud.google.com/) (ao criar conta é possível receber um bonus para teste).
+*Buildar* o projeto
 
-### Submissão e Prazo de entrega
+```bash
 
-- O canditado deverá realizar um fork deste repositório e submeter o código no mesmo;
-- Em caso do deploy realizado, a url deverá ser adicionada no README;
-- O prazo de entrega para este desafio é de 2 (duas) semanas, contando a partir do dia em que o candidato recebeu o email com o link do repositório;
-- Ao finalizar o desafio, o candidato deverá submeter o desafio no questionário disponível na sua área de candidato na plataforma(https://menvievagas.com.br/vagas/fam%C3%8Dliapires/) do Processo Seletivo. É só clicar em RESPONDER no questionário e inserir o link do seu PR.
-Em caso de dúvidas, enviar um e-mail para jobs@clubpetro.com.br
+docker-compose build
+
+```
+
+Rodar o projeto em modo *watch*
+
+```bash
+
+docker-compose up
+
+```
+Ao salvar as modificações, é dado reload automaticament no projeto. 
+
+Além disso, para demais comandos, como teste e lint, é preciso apenas executar os comandos presentes no `package.json`, como por exemplo:
+
+```bash
+
+yarn test
+
+```
+
+## Rotas e documentação
+
+### Para a documentação detalhada, basta consultar diretamente no swagger na seguinte rota:
+
+```bash
+ GET /docs
+ ```
+
+### Para criar um novo local, utiliza-se a rota:
+```bash
+ POST /places
+ ```
+ Com um body:
+```json
+{
+"location": "Vitória da Conquista",
+"country": "Brazil",
+"goal": "2023-09-07T10:13:00.028Z",
+"imageUrl": "https://sm.ign.com/ign_br/gallery/t/the-last-o/the-last-of-us-hbo-series-character-guide_nr24.jpg"
+}
+```
+OBS: apenas urls são aceitas na criação de um local
+
+### Para atualizar meta e local
+
+```bash
+ PATCH /places/:placeId
+ ```
+
+passando os valores de exemplo apenas:
+
+```json
+{
+"location": "Salvador",
+"goal": "2023-10-29T11:15:00.001Z"
+}
+```
+
+### Para excluir um local
+
+```bash
+ DELETE /places/:placeId
+ ```
+
+### Para obter um local em específico
+
+```bash
+ GET /places/:placeId
+ ```
+
+### Para listar os locais ordenado pela data da meta
+
+```bash
+ GET /places
+ ```
+ 
+ ## Melhorias possívels
+Ao finalizar o projeto, sentiu-se necessidade de algumas melhorias, como por exemplo um teste e2e para as rotas do único controller criado e um deploy diretamente em uma cloud (google cloud, como requisitado). O processo de CI/CD é muito facilitado como github actions, porém, o CD ficará para uma v2 do projeto.
