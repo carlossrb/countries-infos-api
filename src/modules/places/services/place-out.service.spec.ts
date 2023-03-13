@@ -1,5 +1,5 @@
 import { EntityOut } from '@core/exception/exception.types';
-import { makeString, makeDate } from '@core/utils/data.generate';
+import { makeString, makeDate } from '@utils/data.generate';
 
 import { MockPlacesRepository } from '../repositories/mock-places.repository';
 

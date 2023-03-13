@@ -2,7 +2,7 @@
 import { CacheModule } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
-import { makeString, makeDate } from '@core/utils/data.generate';
+import { makeString, makeDate } from '@utils/data.generate';
 
 import { ListPlacesService } from '@modules/places/services/list-places.service';
 import { GetPlaceByIdService } from '@modules/places/services/get-place-by-id.service';

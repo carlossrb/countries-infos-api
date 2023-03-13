@@ -22,6 +22,7 @@
     "paths": {
       "@package": ["../package.json"],
       "@core/*": ["core/*"],
+      "@utils/*": ["utils/*"],
       "@modules/*": ["modules/*"]
     }
   }

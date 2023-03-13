@@ -1,5 +1,5 @@
-import { makeString, makeDate } from '@core/utils/data.generate';
-import { isSorted } from '@core/utils/data.validate';
+import { makeString, makeDate } from '@utils/data.generate';
+import { isSorted } from '@utils/data.validate';
 
 import { MockPlacesRepository } from '../repositories/mock-places.repository';
 

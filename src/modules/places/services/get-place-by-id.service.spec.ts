@@ -1,4 +1,4 @@
-import { makeString, makeDate } from '@core/utils/data.generate';
+import { makeString, makeDate } from '@utils/data.generate';
 
 import { Place } from '../infra/nest/typeorm/entities/place.entity';
 import { MockPlacesRepository } from '../repositories/mock-places.repository';
