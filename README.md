@@ -1,8 +1,5 @@
 # countries infos api
 
-<img src="./img/logo-clubpetro.png" style="margin-left: 100px"
-     alt="Clubpetro" width="300">
-     
 O projeto consistiu em criar uma api rest para alimentar um frontend que buscava locais para se conhecer ao redor do mundo. Dada essa condição, tem-se algumas restrições para realização do CRUD. As principais considerações do projeto foram:
 
 - A API deverá ser desenvolvida com Node.js e Express;
